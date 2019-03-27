@@ -1,2 +1,3 @@
-# Eventbrite_Juego
+# Ejercicio 1
+## Esto es un juego para
 
