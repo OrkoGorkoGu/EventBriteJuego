@@ -56,8 +56,9 @@ def main():
             print("\ts\tSí, adiviné el número")
             print("\tg\tNo, mi adivinanza fue demasiado grande.")
             print("\tc\tNo, mi adivinanza fue demasiado chico.")
-            res = input()            
+            res = input()  
 
+    print("¡Gracias por jugar conmigo! Chau.")
     return
 
 if __name__ == "__main__":
