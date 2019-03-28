@@ -1,4 +1,5 @@
 # Ejercicio 1
+### Hecho por: Adam Lathan
 ### Esto es un juego para mi primer tarea de Eventbrite
 
 ## __Como usarlo__:

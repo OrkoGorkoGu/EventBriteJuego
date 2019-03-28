@@ -17,9 +17,13 @@ def main():
     print("Si es así, pulse <enter> y pensá en un número entre 1 y 100.")
     res = input("Si no, dime 'no' y yo empezaré. ")
 
+    # Iniciar el alcance para adivinar
+    min = 1
+    max = 100
+
     if res.lower() == 'no':
         # Generar un numero
-        num = random.randint(1,100)
+        num = random.randint(min, max)
 
         while True:
             try:
@@ -43,10 +47,6 @@ def main():
         print("¡Felicidades! Has adivinado mi número.")
 
     else:
-        # Iniciar el alcance para adivinar
-        min = 1
-        max = 100
-
         while True:  
             # Adivinar el número del usario
             try:
