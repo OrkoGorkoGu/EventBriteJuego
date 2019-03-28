@@ -3,12 +3,15 @@ import random
 def main():
     # Le preguntar al usario si querés jugar
     res = input("Hola! Bienvenido al juego! ¿Listo para jugar (s/n)?")
-    if res == "n":
+
+    # Usario no está list@
+    if res.lower() == "n":
+        # dejar del programa
         return
     
     # Le Mandar un mensaje al usario
     print("\nBueno, vamos a jugar un juego de adivinanzas. Alguien eligirá un número, y el otro va a adivinar hasta llegar al número.\n")
-    print("¿Querés empezar?")
+    print("¿Querés elegir primero?")
     print("Si es así, pulse <enter> y pensá en un número entre 1 y 100.")
     res = input("Si no, dime 'no' y yo empezaré. ")
 
@@ -16,15 +19,20 @@ def main():
         # Generar un numero
         num = random.randint(1,100)
 
-        userGuess = int(input("Qué es tu adivinanza?"))
+        while True:
+            try:
+                userGuess = int(input("Qué es tu adivinanza?"))
+                break
+            except:
+                print("Has apuntado algo inválido. Volvé a intentar otra vez.")
 
         while not (userGuess == num):
-            if userGuess > num:
-                print("Necesitas un número más chico.")
-            elif userGuess < num:
-                print("Necesitas un número más grande.")
+            print("Necesitas un número más %s." %('chico' if userGuess > num else 'grande'))
             
-            userGuess = int(input("Qué es tu adivinanza?"))
+            try:
+                userGuess = int(input("Qué es tu adivinanza?"))
+            except:
+                print("Has apuntado algo inválido. Volvé a intentar otra vez.")
         
         # ha llegado al número
         print("¡Felicidades! Has adivinado mi número.")
@@ -36,7 +44,14 @@ def main():
 
         while True:  
             # Adivinar el número del usario
-            compGuess = random.randint(min,max)
+            try:
+                compGuess = random.randint(min,max)
+            except:
+                # el alcance de los números ya está agotado
+                print("Me parece que me has mintirado...ya no quiero jugar.")
+
+                # dejar del programa
+                return
 
             print("\nMi adivinanza es %s" %compGuess)
             print("¿Tengo razón?")
@@ -59,6 +74,11 @@ def main():
             elif res.lower() == "c":
                 # Cambiar el mínimo
                 min = compGuess + 1
+            
+            # Usario dio algo inválido
+            else:
+                print("Has apuntado algo inválido. Adivino otra vez.")
+                
 
     print("¡Gracias por jugar conmigo! Chau.")
     return
