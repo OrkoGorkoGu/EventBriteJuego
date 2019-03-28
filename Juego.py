@@ -8,6 +8,8 @@ def main():
     if res.lower() == "n":
         # dejar del programa
         return
+    elif res.lower() != "s":
+        print("No sé que querés, así continuaremos.")
     
     # Mandarle un mensaje al usario
     print("\nBueno, vamos a jugar un juego de adivinanzas. Alguien eligirá un número, y el otro va a adivinar hasta llegar al número.\n")
