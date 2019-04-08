@@ -22,7 +22,7 @@ def give_user_feedback(ans, guess):
     return str
 
 def user_guess_turn():
-    
+    pass
 
 def increase_min(guess):
     return guess + 1
