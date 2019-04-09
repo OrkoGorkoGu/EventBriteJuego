@@ -85,12 +85,12 @@ def player_guess():
         if adiv == "Invalid Input":
            print("Has apuntado algo inválido. Volvé a intentar otra vez.")
            continue
-        print(give_user_feedback(num, guess))
+        print(give_user_feedback(num, adiv))
             
 
     while not (adiv == num):
         # Decirle al usario como fue su adivinanza
-        print(give_user_feedback(num, guess))
+        print(give_user_feedback(num, adiv))
         print("Qué es tu adivinanza?")
         adiv = get_user_number()
         if adiv == "Invalid Input":

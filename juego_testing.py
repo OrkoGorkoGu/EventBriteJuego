@@ -7,7 +7,7 @@ class TestUserInput(unittest.TestCase):
     def test_get_user_number_bad_input(self, mocked_input):
         mocked_input.side_effect = ["String Text #$%*", "done"]
         test = Juego.get_user_number()
-        self.assertEqual(test, "Invalid Input")
+        self.assertEqual(test, "Invalid Input")     
     
     @mock.patch('Juego.input', create=True)
     def test_get_user_feedback_ucase_s(self, mocked_input):
