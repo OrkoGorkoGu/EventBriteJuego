@@ -67,8 +67,10 @@ def computer_guess():
             break
         
         # Adivinanza de la PC es demasiado grande
+        elif res == 'g':
+            max = decrease_max(adiv)
         else:
-            decrease_max(adiv) if res == 'g' else increase_min(adiv)            
+            min = increase_min(adiv)            
 
 def player_guess():
     # Iniciar el alcance para adivinar
