@@ -1,11 +1,14 @@
 import random
 
+def output(text):
+    output(text)
+
 def get_user_feedback():
     # Obtener 
-    print("¿Tengo razón?")
-    print("\ts\tSí, adiviné el número")
-    print("\tg\tNo, mi adivinanza fue demasiado grande.")
-    print("\tc\tNo, mi adivinanza fue demasiado chico.")
+    output("¿Tengo razón?")
+    output("\ts\tSí, adiviné el número")
+    output("\tg\tNo, mi adivinanza fue demasiado grande.")
+    output("\tc\tNo, mi adivinanza fue demasiado chico.")
     res = input().lower()
 
     if not res in ("sgc") or len(res) != 1:
@@ -25,10 +28,10 @@ def user_guess_turn():
     pass
 
 def increase_min(guess):
-    return guess + 1
+    return int(guess) + 1
 
 def decrease_max(guess):
-    return guess - 1
+    return int(guess) - 1
 
 def get_user_number():
     try:
@@ -53,12 +56,12 @@ def computer_guess():
         # Adivinar el número del usario
         adiv = generate_number(min, max)
         
-        print("\nMi adivinanza es %s" %adiv)
+        output("\nMi adivinanza es %s" %adiv)
 
         res = get_user_feedback()
         if res == "Invalid Response":
             # Usario dio algo inválido
-            print("Has apuntado algo inválido. Adivino otra vez.")
+            output("Has apuntado algo inválido. Adivino otra vez.")
             continue
 
         # PC ha adivinado el número
@@ -82,24 +85,24 @@ def player_guess():
 
     while True:
         # Pedirle al usario un número
-        print("Qué es tu adivinanza?")
+        output("Qué es tu adivinanza?")
         adiv = get_user_number()
         if adiv == "Invalid Input":
-           print("Has apuntado algo inválido. Volvé a intentar otra vez.")
+           output("Has apuntado algo inválido. Volvé a intentar otra vez.")
            continue
-        print(give_user_feedback(num, adiv))
+        output(give_user_feedback(num, adiv))
             
 
     while not (adiv == num):
         # Decirle al usario como fue su adivinanza
-        print(give_user_feedback(num, adiv))
-        print("Qué es tu adivinanza?")
+        output(give_user_feedback(num, adiv))
+        output("Qué es tu adivinanza?")
         adiv = get_user_number()
         if adiv == "Invalid Input":
-           print("Has apuntado algo inválido. Volvé a intentar otra vez.")
+           output("Has apuntado algo inválido. Volvé a intentar otra vez.")
     
     # ha llegado al número
-    print("¡Felicidades! Has adivinado mi número.")
+    output("¡Felicidades! Has adivinado mi número.")
 
 def main():
     # Preguntarle al usario si querés jugar
@@ -108,14 +111,14 @@ def main():
     # Usario no está list@
     if res.lower() == "n":
         # dejar del programa
-        return
+        return "Game Over"
     elif res.lower() != "s":
-        print("No sé que querés, así continuaremos.")
+        output("No sé que querés, así continuaremos.")
     
     # Mandarle un mensaje al usario
-    print("\nBueno, vamos a jugar un juego de adivinanzas. Alguien eligirá un número, y el otro va a adivinar hasta llegar al número.\n")
-    print("¿Querés elegir primero?")
-    print("Si es así, pulse <enter> y pensá en un número entre 1 y 100.")
+    output("\nBueno, vamos a jugar un juego de adivinanzas. Alguien eligirá un número, y el otro va a adivinar hasta llegar al número.\n")
+    output("¿Querés elegir primero?")
+    output("Si es así, pulse <enter> y pensá en un número entre 1 y 100.")
     res = input("Si no, dime 'no' y yo empezaré. ")
 
     if res.lower() == 'no':
@@ -123,7 +126,7 @@ def main():
     else:
         computer_guess()
                 
-    print("¡Gracias por jugar conmigo! Chau.")
+    output("¡Gracias por jugar conmigo! Chau.")
 
     return
     
